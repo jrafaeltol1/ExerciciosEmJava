@@ -13,7 +13,7 @@ public class EstudoDeGit {
 			int numero = 0;
 			int countImpar = 0;
 			int countPar = 0;
-			int variavelTeste =0;
+			
 
 			Scanner scan = new Scanner(System.in);
 
@@ -25,7 +25,7 @@ public class EstudoDeGit {
 			do {
 				System.out.println("Numero: ");
 				numero = scan.nextInt();
-				count++  ;
+				count++;
 
 				if (numero % 2 == 0)
 					countPar++;
