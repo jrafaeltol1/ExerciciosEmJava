@@ -3,7 +3,7 @@ package ExercicioArray;
 import java.util.Random;
 
 /*
- * Gere e imprima uma matriz 4x4
+ * Gere e , imprima uma matriz 4x4
  * com valores aleatórios entre 0-9
  */
 public class Arraymultidimensional {
