@@ -25,7 +25,7 @@ public class EstudoDeGit {
 			do {
 				System.out.println("Numero: ");
 				numero = scan.nextInt();
-				count++;
+				count++  ;
 
 				if (numero % 2 == 0)
 					countPar++;
