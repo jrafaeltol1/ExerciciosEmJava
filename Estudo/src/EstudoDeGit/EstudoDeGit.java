@@ -13,6 +13,7 @@ public class EstudoDeGit {
 			int numero = 0;
 			int countImpar = 0;
 			int countPar = 0;
+			String variavelDeTeste;
 			
 
 			Scanner scan = new Scanner(System.in);
