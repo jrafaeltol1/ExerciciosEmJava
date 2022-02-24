@@ -16,7 +16,7 @@ public class Arraymultidimensional {
 		
 		
 		/*
-		 * Aqui nesse for se salva as informações no Array bidimensional
+		 * Aqui nesse for sse salva as informações no Array bidimensional
 		 */
 		for (int i=0;i < M.length; i++) {
 			for (int j = 0; j< M[i].length ; j++)
