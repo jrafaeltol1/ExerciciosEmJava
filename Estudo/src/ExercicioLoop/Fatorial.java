@@ -13,6 +13,8 @@ public class Fatorial {
 		
 		
 		System.out.println(fatorial + "! = ");
+		
+		
 
 		for (int i = fatorial; i >= 1; i--) {
 
