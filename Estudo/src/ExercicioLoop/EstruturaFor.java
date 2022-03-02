@@ -9,6 +9,12 @@ public class EstruturaFor {
 			System.out.println("Numero atual é "+numero);
 			
 		}
+		System.out.println("Decrementando");
+		
+		for (int numero2 = 10;numero2 >=0;numero2--) {
+			System.out.println("Numero atual é "+numero2);
+			
+		}
 
 	}
 
