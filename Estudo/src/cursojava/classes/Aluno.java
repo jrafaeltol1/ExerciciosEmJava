@@ -5,18 +5,13 @@ import java.util.List;
 
 import cursojava.constantes.StatusAluno;
 
-public class Aluno {
+public class Aluno extends Pessoa{
 
-	String nome;
-	/*int idade;
-	String dataNascimento;
-	String registroGeral;
-	String numeroCPF;
-	String nomeMae;
-	String nomePai;
+	
+	
 	String dataMatricula;
 	String nomeEscola;
-	String serieMatriculado;*/
+	String serieMatriculado;
 	double nota1;
 	double nota2;
 	double nota3;
@@ -48,13 +43,7 @@ public class Aluno {
 		this.nome = nome;
 	}
 
-	/*public int getIdade() {
-		return idade;
-	}
-
-	public void setIdade(int idade) {
-		this.idade = idade;
-	}
+	
 
 	public String getDataNascimento() {
 		return dataNascimento;
@@ -118,7 +107,7 @@ public class Aluno {
 
 	public void setSerieMatriculado(String serieMatriculado) {
 		this.serieMatriculado = serieMatriculado;
-	}*/
+	}
 
 	public double getNota1() {
 		return nota1;
@@ -192,7 +181,7 @@ public class Aluno {
 			return StatusAluno.REPROVADO;
 		}
 	}
-/*
+
 	@Override
 	public String toString() {
 		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
@@ -200,6 +189,6 @@ public class Aluno {
 				+ ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculado="
 				+ serieMatriculado + ", nota1=" + nota1 + ", nota2=" + nota2 + ", nota3=" + nota3 + ", nota4=" + nota4
 				+ "]";
-	}*/
+	}
 
 }
