@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import cursojava.classesAuxiliares.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
 import cursojava.interfaces.PermitirAcesso;
 
@@ -19,7 +20,8 @@ public class PrimeiraClasseJavaExecutavel {
 		PermitirAcesso permitirAcesso = new Secretario(usuario , senha);
 		
 		
-		if (permitirAcesso.autenticar()) {
+		
+		if (new FuncaoAutenticacao(permitirAcesso).autenticarCursoJava()) {
 
 			List<Aluno> alunos = new ArrayList<Aluno>();
 
