@@ -21,7 +21,8 @@ public class PrimeiraClasseJavaExecutavel {
 		
 		
 		
-		if (new FuncaoAutenticacao(permitirAcesso).autenticarCursoJava()) {
+
+		if (new FuncaoAutenticacao(new Diretor(usuario , senha)).autenticarCursoJava()) {
 
 			List<Aluno> alunos = new ArrayList<Aluno>();
 
