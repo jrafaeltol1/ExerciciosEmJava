@@ -5,6 +5,11 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -27,6 +32,54 @@ public class TelaTimeThread extends JDialog {
 	
 	private JButton jbutton = new JButton("Start");
 	private JButton jbutton1 = new JButton("Stop");
+	
+	
+	private Runnable thread1 = new Runnable() {
+		
+		@Override
+		public void run() {
+			while (true) {// fica sempre rodando.
+				mostraTempo.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm.ss").
+						format(Calendar.getInstance().getTime()));
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+								
+			}
+			
+			
+		}
+	};
+	
+private Runnable thread2 = new Runnable() {
+		
+		@Override
+		public void run() {
+			while (true) {// fica sempre rodando.
+				mostraTempo2.setText(new SimpleDateFormat("dd-MM-yyyy hh:mm.ss").
+						format(Calendar.getInstance().getTime()));
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+								
+			}
+			
+			
+		}
+	};
+	
+	private Thread thread1Time;
+	private Thread thread2Time;
 	
 	
 	
@@ -84,14 +137,41 @@ public class TelaTimeThread extends JDialog {
 		gridBagConstraints.gridx++;
 		jpanel.add(jbutton1 , gridBagConstraints);
 		
+		
+		
+		jbutton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				thread1Time = new Thread(thread1);
+				thread1Time.start();
+				
+				thread2Time = new Thread(thread2);
+				thread2Time.start();
+				
+				jbutton.setEnabled(false);
+				jbutton1.setEnabled(true);
+			}
+		});
+	
+		jbutton1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				thread1Time.stop();
+				thread2Time.stop();
+				
+				jbutton.setEnabled(true);
+				jbutton1.setEnabled(false);
+			}
+		});
+		
+		
+		
 	
 		
 		
-		
-	
-		
-		
-		
+		jbutton.setEnabled(true);
 		
 		add(jpanel, BorderLayout.WEST);
 		setVisible(true);/*Torna a tela visivel para o usuario , sempre tem que ser o ultimo comando*/
