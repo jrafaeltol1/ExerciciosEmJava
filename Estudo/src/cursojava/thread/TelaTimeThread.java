@@ -93,8 +93,17 @@ public class TelaTimeThread extends JDialog {
 		
 		jbutton.addActionListener(new ActionListener() {
 			
+				
+				
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				if (fila == null) {
+					fila = new ImplementacaoFilaThread();
+					fila.start();
+				
+				for (int qtd=0; qtd <100;qtd++) {
 				
 				ObjetoFilaThread filaThread = new ObjetoFilaThread();
 				filaThread.setNome(mostraTempo.getText());
@@ -102,6 +111,10 @@ public class TelaTimeThread extends JDialog {
 				
 				fila.add(filaThread);
 			}
+			}
+			}
+			
+		
 		});
 	
 		jbutton1.addActionListener(new ActionListener() {
@@ -109,7 +122,8 @@ public class TelaTimeThread extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				
+				fila.stop();
+				fila = null; // mata a fila
 				
 			}
 		});

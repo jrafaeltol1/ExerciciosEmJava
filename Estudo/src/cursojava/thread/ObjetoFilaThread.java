@@ -6,6 +6,10 @@ public class ObjetoFilaThread {
 	
 	private String nome;
 	private String email;
+	
+	
+	
+	
 	public String getNome() {
 		return nome;
 	}
