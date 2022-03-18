@@ -24,65 +24,17 @@ public class TelaTimeThread extends JDialog {
 	
 	private JPanel jpanel = new JPanel(new GridBagLayout());/*Painel de componentes*/
 	
-	private JLabel descricaoHora = new JLabel("Time Thread 1");
+	private JLabel descricaoHora = new JLabel("Nome");
 	private JTextField mostraTempo = new JTextField();
 	
-	private JLabel descricaoHora2 = new JLabel("Time Thread 1");
+	private JLabel descricaoHora2 = new JLabel("E-mail");
 	private JTextField mostraTempo2 = new JTextField();
 	
-	private JButton jbutton = new JButton("Start");
+	private JButton jbutton = new JButton("Add Lista");
 	private JButton jbutton1 = new JButton("Stop");
 	
 	
-	private Runnable thread1 = new Runnable() {
-		
-		@Override
-		public void run() {
-			while (true) {// fica sempre rodando.
-				mostraTempo.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm.ss").
-						format(Calendar.getInstance().getTime()));
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				
-								
-			}
-			
-			
-		}
-	};
-	
-private Runnable thread2 = new Runnable() {
-		
-		@Override
-		public void run() {
-			while (true) {// fica sempre rodando.
-				mostraTempo2.setText(new SimpleDateFormat("dd-MM-yyyy hh:mm.ss").
-						format(Calendar.getInstance().getTime()));
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				
-								
-			}
-			
-			
-		}
-	};
-	
-	private Thread thread1Time;
-	private Thread thread2Time;
-	
-	
-	
+	private ImplementacaoFilaThread fila = new ImplementacaoFilaThread();
 	
 	
 	
@@ -115,7 +67,7 @@ private Runnable thread2 = new Runnable() {
 		mostraTempo.setPreferredSize(new Dimension(200,25));
 		gridBagConstraints.gridy++;
 		jpanel.add(mostraTempo, gridBagConstraints);
-		mostraTempo.setEditable(false);
+		
 		
 		
 		descricaoHora2.setPreferredSize(new Dimension(200, 25));
@@ -125,7 +77,7 @@ private Runnable thread2 = new Runnable() {
 		mostraTempo2.setPreferredSize(new Dimension(200,25));
 		gridBagConstraints.gridy++;
 		jpanel.add(mostraTempo2, gridBagConstraints);
-		mostraTempo2.setEditable(false);
+		
 		
 		gridBagConstraints.gridwidth = 1;
 		
@@ -143,14 +95,12 @@ private Runnable thread2 = new Runnable() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				thread1Time = new Thread(thread1);
-				thread1Time.start();
 				
-				thread2Time = new Thread(thread2);
-				thread2Time.start();
+				ObjetoFilaThread filaThread = new ObjetoFilaThread();
+				filaThread.setNome(mostraTempo.getText());
+				filaThread.setEmail(mostraTempo2.getText());
 				
-				jbutton.setEnabled(false);
-				jbutton1.setEnabled(true);
+				fila.add(filaThread);
 			}
 		});
 	
@@ -158,11 +108,9 @@ private Runnable thread2 = new Runnable() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				thread1Time.stop();
-				thread2Time.stop();
 				
-				jbutton.setEnabled(true);
-				jbutton1.setEnabled(false);
+				
+				
 			}
 		});
 		
@@ -171,8 +119,8 @@ private Runnable thread2 = new Runnable() {
 	
 		
 		
-		jbutton.setEnabled(true);
-		
+	
+		fila.start();
 		add(jpanel, BorderLayout.WEST);
 		setVisible(true);/*Torna a tela visivel para o usuario , sempre tem que ser o ultimo comando*/
 		
