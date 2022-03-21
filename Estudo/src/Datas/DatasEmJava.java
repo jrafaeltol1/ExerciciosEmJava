@@ -1,12 +1,13 @@
 package Datas;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.SimpleFormatter;
 
 public class DatasEmJava {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 
 		Date date = new Date();
 
@@ -20,13 +21,15 @@ public class DatasEmJava {
 	
 	/*------------Simple Date Format------------*/
 		
-		SimpleDateFormat simpleDateFormat = new  SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat simpleDateFormat = new  SimpleDateFormat("dd/MM/yyyy HH:mm.ss");
 	
 		System.out.println(simpleDateFormat.format(date));
 		
 		simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		System.out.println("Data em formato para banco de dados "
 		                                        +simpleDateFormat.format(date));
+		
+		System.out.println("Objeto date "+simpleDateFormat.parse("1987-10-18 20:10:2"));
 		
 	}
 
